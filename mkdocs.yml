@@ -1,0 +1,20 @@
+site_name: avm99963
+theme:
+  name: 'material'
+  language: 'es'
+  logo:
+    icon: 'live_help'
+repo_name: avm99963/support.avm99963.com
+repo_url: https://github.com/avm99963/support.avm99963.com
+extra_css: ["css/styles.css"]
+markdown_extensions:
+  - admonition
+  - footnotes
+nav:
+  - 'Sobre esta web': 'index.md'
+  - 'Chrome':
+    - 'Malware en Chrome': 'chrome/malware.md'
+    - 'Inhabilitar extensiones de Chrome': 'chrome/diagnostico-extensiones.md'
+    - 'Chrome no carga páginas web': 'chrome/no-carga-paginas-web.md'
+    - 'Canales de Chrome': 'chrome/canales.md'
+    - 'Error con certificado': 'chrome/error-certificado'
