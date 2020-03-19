@@ -22,5 +22,5 @@ Puedes ir a la página `about:discards` para ver el ranking actual de tus pesta�
 6. Pestañas fijadas
 7. La pestaña seleccionada
 
-## ¿Con qué frecuencia afecta esto los usuarios?
+## ¿Con qué frecuencia afecta esto a los usuarios?
 La mayoría de usuarios solo tienen abiertas una o dos pestañas. Incluso los usuarios con más pestañas abiertas raramente se quedan sin memoria. Algunos usuarios que se quedan sin memoria nunca ven una recarga (cierran la sesión sin mirar la pestaña que se había descartado). Tenemos métricas internas para todas estas condiciones. Los Googlers (empleados de Google) suelen tener un número muy grande de pestañas abiertas con sitios muy complejos y suelen tener recargas más a menudo.
