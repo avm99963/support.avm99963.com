@@ -12,7 +12,7 @@ Abre el administrador de tareas de Chrome (en el **menú de Chrome** ( **⋮** )
 Cierra algunas pestañas o desinstala extensiones que usen mucha memoria. Si hay alguna pestaña en específico que no quieres que se descarte automáticamente, haz clic derecho encima de ella y haz clic en **Fijar pestaña**.
 
 ## ¿Cómo decide Chrome qué pestaña descartar?
-Puedes ir a la página `about:discards` para ver el ranking actual de tus pestañas. Descarta las pestañas en el siguiente orden:
+Puedes ir a la página `about:discards` para ver el ranking actual de tus pestañas. Chrome descarta las pestañas en el siguiente orden:
 
 1. Páginas internas como la página de nueva pestaña, administrador de marcadores, etc.
 2. Pestañas seleccionadas hace mucho tiempo
