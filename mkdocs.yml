@@ -18,3 +18,5 @@ nav:
     - 'Chrome no carga páginas web': 'chrome/no-carga-paginas-web.md'
     - 'Canales de Chrome': 'chrome/canales.md'
     - 'Error con certificado': 'chrome/error-certificado.md'
+    - 'Traducciones':
+      - 'Descarte y recarga de pestañas': 'chrome/traducciones/descarte-recarga-pestanas.md'
