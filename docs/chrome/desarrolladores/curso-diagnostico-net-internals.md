@@ -12,7 +12,7 @@ Probablemente sería útil leer [vida-de-una-url-request.md](vida-de-una-url-req
 
 ## Qué información contiene Net-Internals
 
-`chrome://net-internals` proporciona una vista de la actividad del navegador desde la perspectiva de net/. Por esta razón, le falta información sobre las pestañas, la navegación, los frames, los tipos de recursos, etc.
+`chrome://net-internals` proporciona una vista de la actividad del navegador desde la perspectiva de `net/`. Por esta razón, le falta información sobre las pestañas, la navegación, los _frames_, los tipos de recursos, etc.
 
 La columna de la izquierda del todo presenta una lista de vistas. La mayoría del diagnóstico se hace con la vista **Eventos**, que será todo lo cubre este documento.
 
@@ -42,15 +42,73 @@ La mayoría de eventos, pero no todos ellos, corresponden a una fuente. Las exce
 
 ## Tipos de fuentes comunes
 
-!!! info "Falta la traducción"
-    Esta sección todavía no ha sido traducida, pero se puede consultar en el documento original (en inglés) enlazado al principio de este documento.
+Las **fuentes** corresponden a ciertos objetos de `net`, aunque muchas veces múltiples capas de `net/` se registrarán como una sola fuente. Aquí hay los principales tipos de fuentes y lo que incluyen (excluyendo HTTP2 [SPDY]/QUIC):
+
+* **`URL_REQUEST`**:  Corresponde al objeto `URLRequest`. Incluye eventos de todas las implementaciones de `URLRequestJobs`, `HttpCache::Transactions`, `NetworkTransactions`, `HttpStreamRequests`, `HttpStream` y `HttpStreamParsers` usados para atender una respuesta. Si `URL_REQUEST` sigue redirecciones HTTP, incluirá cada redirección. Esto es mucha cosa, pero generalmente solo un objeto está trabajando a la vez. Esta fuente de eventos incluye la URL entera y generalmente incluye las cabeceras de la petición y la respuesta (exceptuando cuando la caché gestiona la respuesta).
+
+* **`HTTP_STREAM_JOB`**:  Corresponde al `HttpStreamFactory::Job` (nótese que una petición puede tener múltiples _jobs_). También incluye las consultas de DNS y proxy. Los eventos registrados de `HTTP_STREAM_JOB` están separados de `URL_REQUEST` porque dos _stream jobs_ podrían ser creados y realizarse a la vez, en algunos casos -- uno para QUIC y uno para HTTP.
+
+    Uno de los eventos finales de esta fuente, antes del evento `HTTP_STREAM_JOB_BOUND_TO_REQUEST`, indica cómo se creó un `HttpStream`:
+
+    + Un evento `SOCKET_POOL_BOUND_TO_CONNECT_JOB` significa que un nuevo _socket_ TCP fue creado, mientras que un evento `SOCKET_POOL_REUSED_AN_EXISTING_SOCKET` indica que un _socket_ TCP existente fue reusado para una petición que no sea HTTP/2.
+
+    + Un evento `HTTP2_SESSION_POOL_IMPORTED_SESSION_FROM_SOCKET` indica que una nueva sesión HTTP/2 fue abierta por este _job_.
+
+    + Un evento `HTTP2_SESSION_POOL_FOUND_EXISTING_SESSION` indica que la petición fue realizada en una sesión HTTP/2 preexistente.
+
+    + Un evento `HTTP2_SESSION_POOL_FOUND_EXISTING_SESSION_FROM_IP_POOL` significa que la petición fue añadida a la piscina de una sesión HTTP/2 preexistente que tenía una `SpdySessionKey` diferente, pero que la resolución DNS resultó en la misma IP y el certificado coincide.
+
+    + Actualmente no se registran eventos cuando se abren nuevas sesiones QUIC o se reusan sesiones existentes.
+
+* **`*_CONNECT_JOB`**: Corresponde a las subclases de `ConnectJob` que usan cada piscina de _sockets_. Un `CONNECT_JOB` satisfactorio devuelve un `SOCKET`. Los eventos aqí varían un montón dependiendo del tipo de _job_. Su principal evento es generalmente crear un _socket_ o pedir un _socket_ de otra piscinas de _sockets_ (lo que crea otro `CONNECT_JOB`) y luego realizar un poco de trabajo adicional encima de eso -- como por ejemplo establecer una conexión SSL encima de una conexión TCP.
+
+* **`SOCKET`**: Corresponden a los `TCPSockets`, pero podrían tener otras clases puestas encima de ellas (como un `SSLClientSocket`). Esta clase es un poco diferente deque las otras, ya que el nombre corresponde a la clase de arriba del todo en vez de la de abajo del todo. Esto es así por el hecho que el _socket_ se crea primero, y después el `SSL` (o una conexión proxy) se pone encima de él. Los _sockets_ pueden ser reutilizados entre múltiples peticiones, y una petición podría acabar cogiendo el _socket_ creado por otra petición.
+
+* **`HOST_RESOLVER_IMPL_JOB`**: Corresponden a `HostResolverImpl::Job`. Incluyen información sobre durante cuánto tiempo se puso en cola una consulta, cada consulta DNS que se intentó (con la plataforma o el resolvedor incorporado) y todas las otras fuentes que están esperando al _job_.
+
+Cuando una fuente depende en otra, el código generalmente registra un evento a las dos fuentes con un valor `source_dependency` apuntando a la otra fuente. Estos valores se pueden clicar en la interfaz, añadiendo la fuente referida a la lista de fuentes seleccionadas.
 
 ## Diagnóstico
 
-!!! info "Falta la traducción"
-    Esta sección todavía no ha sido traducida, pero se puede consultar en el documento original (en inglés) enlazado al principio de este documento.
+Cuando recibes un informe de un usuario, la primera cosa que generalmente querrás encontrar es los `URL_REQUEST[s]` que están funcionando mal. Si el usuario da un código `ERR_*` o la URL exacta del recurso que no carga, puedes buscarlo directamente. Si es una subida, puedes buscar `post`, y si es un problema con redirecciones, puedes buscar `redirect`. Aun así, a menudo no tendrás mucha información sobre el problema. Hay dos filtros en _net-internals_ que te ayudarán en muchos casos:
+
+* `type:URL_REQUEST is:error` restringirá al lista de fuentes a objetos `URL_REQUEST` que tengan algún tipo de error. Los errores de caché no son fatales a menudo, así que generalmente los puedes ignorar, y buscar otros más interesantes.
+
+* `type:URL_REQUEST sort:duration` mostrará las peticiones ordenadas por duración. Esto es útil a menudo para encontrar peticiones que se han colgado o que son lentas.
+
+Para una lista de otros comandos de filtrado, puedes poner el ratón encima del interrogante al lado del campo de búsqueda.
+
+Una vez encuentras la petición problemática, lo siguiente es encontrar dónde está el problema -- a menudo es uno de los últimos eventos, aunque también podría estar relacionado con las cabeceras de la respuesta o la petición. Puedes usar los enlaces `source_dependency` para navegar entre fuentes relacionadas. Puedes usar el nombre de un evento para buscar el código responsable de ese evento, e intentar deducir qué fue mal antes o después de un evento particular.
+
+Algunas cosas que puedes buscar mientras estás diagnosticando el problema:
+
+* Los eventos `CANCELLED` casi siempre vienen de fuera de la pila de red.
+
+* Cambiar de redes o entrar o salir del modo suspender puede tener un montón de efectos divertidos en la actividad de red. Cambios de red registran un evento `NETWORK_CHANGED`. Los eventos de suspender no se registran actualmente.
+
+* Los eventos `URL_REQUEST_DELEGATE_\*`, `NETWORK_DELEGATE_\*` y `DELEGATE_INFO` significanque una
+`URL_REQUEST` está bloqueada por un `URLRequest::Delegate` o el `NetworkDelegate`, que están implementados fuera de la pila de red. Una petición a veces se cancelará aquí por razones que solo conce el _delegate_. O el delegado podría causar un cuelgue. En general, para diagnosticar problemas relacionados con delegados, uno necesita descubrir qué método de qué objeto está causando el problema. El objeto podría ser un `NetworkDelegate`, un `ResourceThrottle`, un `ResourceHandler`, el `ResourceLoader` mismo, o el `ResourceDispatcherHost`.
+
+* Los _sockets_ son a menudo reusados entre peticiones. Si una petición está en un _stale socket_ (_socket_ reusado), ¿cuál fue la petición anterior que usó el _socket_, y hace cuánto que se realizó? (Echa un vistazo a los eventos `SOCKET_IN_USE`, y los `HTTP_STREAM_JOBS` a los cuales apuntan a través del valor `source_dependency`.)
+
+* La negociación SSl es un proceso lleno de peligros, particularmente con proxies rotos. Estos generalmente se detienen o fallan en la fase `SSL_CONNECT` en la capa `SOCKET`.
+
+* Solicitudes de rango (_range_) tienen magia para gestionarlos al nivel de la caché, y a menudo son creados por código de multimedia o PDF.
+
+* Enlace tardío: Los `HTTP_STREAM_JOBs` no se asocian con ningún `CONNECT_JOB` hasta que un `CONNECT_JOB` se conecta. Esto es así para que el `HTTP_STREAM_JOB` pendiente de más alta prioridad coge el primer _socket_ disponible (que puede ser un nuevo _socket_ o un viejo que ya está disponible). Por esta razón, puede ser difícil relacionar `HTTP_STREAM_JOBs` que se han colgado con `CONNECT_JOBs`.
+
+* Cada `CONNECT_JOB` pertenece a un "grupo", que tiene un límite de 6 conexiones. Si todos los `CONNECT_JOBs` que pertenecen a un grupo (el campo de descripción del `CONNECT_JOB`) se han parado esperando a un _socket_ disponible, el grupo problemente tiene 6 _sockets_ que se han colgado -- ya sea intentando conectarse, o usados por peticiones que se han parado y por tanto fuera del control de la piscina de _sockets_.
+
+* Hay un límite en el número de resoluciones DNS que se pueden empezar a la vez. Si todo se ha parado mientras se resuelven direcciones DNS, probablemente has llegado a este límite, y las consultas DNS se están comportando mal también de alguna manera.
 
 # Miscelánea
 
-!!! info "Falta la traducción"
-    Esta sección todavía no ha sido traducida, pero se puede consultar en el documento original (en inglés) enlazado al principio de este documento.
+Estas son solo cosas misceláneas que puedes notar mientras miras el registro de eventos.
+
+* Las `URLRequests` que parecen empezar dos veces por ningún motivo aparente. Estas son típicamente peticiones de un _frame_ principal, y la primera petición es AppCache. Puedes ignorar la primera y seguir viviendo.
+
+* Algunas peticiones HTTP no se gestionan por `URLRequestHttpJobs`. Estas incluyen cosas como redirecciones HSTS (`URLRequestRedirectJob`), AppCache, ServiceWorker, etc. Estas generalmente no registran tanta información, así que puede ser difícil saber qué está pasando con estas.
+
+* Peticiones no HTTP pueden aparecer también en el registro, y generalmente no registran mucha información (URLs blob, URLs chrome, etc).
+
+* Las preconexiones crean un evento `HTTP_STREAM_JOB` que podría crear múltiples `CONNECT_JOBs` (o ninguno) y después es destruído. Estos se pueden identificar por los eventos `SOCKET_POOL_CONNECTING_N_SOCKETS`.
