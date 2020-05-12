@@ -147,7 +147,7 @@ Cuando el `HttpNetworkTransaction` se está destruyendo, este determina si el _s
 
 Un ejemplo de las relaciones entre objetos involucrados en el proceso de arriba se muestre en el siguiente diagrama:
 
-![Object Relationship Diagram for URLRequest lifetime](../../../img/chrome_url_request.png)
+![Object Relationship Diagram for URLRequest lifetime](../../img/chrome_url_request.png)
 
 Hay dos cosas del diagrama anterior que no se hacen claras visualmente:
 
