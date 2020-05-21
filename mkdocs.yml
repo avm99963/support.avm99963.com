@@ -7,9 +7,16 @@ theme:
 repo_name: avm99963/support.avm99963.com
 repo_url: https://github.com/avm99963/support.avm99963.com
 extra_css: ["css/styles.css"]
+plugins:
+  - search
+  - minify:
+      minify_html: true
+  - git-revision-date-localized
 markdown_extensions:
-  - admonition
-  - footnotes
+  - markdown.extensions.admonition
+  - markdown.extensions.footnotes
+  - markdown.extensions.toc:
+      permalink: true
 nav:
   - 'Sobre esta web': 'index.md'
   - 'Chrome':
@@ -23,3 +30,12 @@ nav:
     - 'Para desarrolladores':
       - 'Vida de un objeto URLRequest': 'chrome/desarrolladores/vida-de-una-url-request.md'
       - 'Un curso rápido sobre diagnóstico de problemas con chrome://net-internals': 'chrome/desarrolladores/curso-diagnostico-net-internals.md'
+extra:
+  social:
+    - icon: material/web
+      link: https://avm99963.com
+    - icon: fontawesome/brands/github
+      link: https://github.com/avm99963
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/avm99963
+copyright: Copyright &copy; Adrià Vilanova Martínez. Except as otherwise noted, the content of this page is licensed under the <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 License</a>.
