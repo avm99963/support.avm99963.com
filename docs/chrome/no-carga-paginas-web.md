@@ -53,11 +53,14 @@ En el caso de estar incorrecto, se debe cambiar a la actual. Además, si el prob
 ## 7. Reinstalar Chrome
 Para reinstalar Chrome, primero lo desinstalaremos: [Cómo desinstalar Google Chrome - Ayuda de Google Chrome](https://support.google.com/chrome/answer/95319?hl=es)
 
-En Windows, hay que asegurarse que marcamos la opción **¿Quieres borrar también los datos de navegación?** y en Linux la opción **Marcar para eliminar completamente**, si no la desinstalación no borrará todos los datos de Chrome y puede ser que algún dato corrupto siga provocando el problema aún después de desinstalar. En Mac se debe borrar la carpeta `Chrome` ubicada en `~/Library/Application Support/Google` para borrar los datos del usuario después de arrastrar la aplicación Chrome a la papelera.
+!!! warning "Borrar también los datos de usuario de Chrome"
+    Al desinstalar Chrome hay que borrar todos los datos de Chrome, ya que de lo contrario puede ser que algún dato corrupto siga provocando el problema aún después de desinstalar.
+
+    En Windows, hay que asegurarse que marcamos la opción **¿Quieres borrar también los datos de navegación?**, en Linux la opción **Marcar para eliminar completamente**, y en Mac se debe borrar la carpeta `Chrome` ubicada en `~/Library/Application Support/Google` después de arrastrar la aplicación Chrome a la papelera para borrar los datos del usuario.
+
+    <div style="text-align: center;"><a href="../../img/uninstall.png" target="\_blank" rel="noopener nofollow"><img src="../../img/uninstall.png" style="max-width: 350px;"></a></div>
 
 Después podemos volver a instalar Chrome desde su página web: [Cómo descargar e instalar Google Chrome - Ayuda de Google Chrome](https://support.google.com/chrome/answer/95346?hl=es)
-
-<div style="text-align: center;"><a href="../../img/uninstall.png" target="\_blank" rel="noopener nofollow"><img src="../../img/uninstall.png" style="max-width: 350px;"></a><br><span style="color: gray;">[haz clic encima de las imágenes para hacerlas más grandes]</span></div>
 
 ## 8. Comprobar configuración del cortafuegos (firewall)
 En el caso de tener un programa de antivirus/cortafuegos instalado, es conveniente ver en su configuración si está bloqueando las conexiones entrantes y/o salientes de Chrome. En el caso de que no permita alguna de estas conexiones, hay que configurarlo para que sí que lo haga. Y en el caso de que no haya nada configurado para Chrome, hacer una excepción para que el cortafuegos acepte conexiones entrantes y salientes de Chrome.
@@ -75,14 +78,14 @@ En el caso de tener un programa de antivirus/cortafuegos instalado, es convenien
 ## 10. Comprueba si la página web funciona con otros navegadores
 Es importante ver si la página web funciona con otros navegadores como [Firefox](https://www.mozilla.org/es-ES/firefox/new/).
 
-Si la página funcionaba con Internet Explorer pero no con Firefox o Chrome, es muy probable que esa página web esté diseñada para que funcione solo con Internet Explorer. Antes los desarrolladores diseñaban las páginas web para que funcionasen con Internet Explorer, pero Internet Explorer ha sido un navegador que no ha cumplido con varios estándares de la web, y por consecuencia esas páginas web no funcionan en otros navegadores. La solución sería instalar y usar la extensión IE Tab con esa página web (por el momento solo funciona en Windows): [Chrome Web Store - IE Tab](https://chrome.google.com/webstore/detail/ie-tab/hehijbfgiekmjfkfjpbkbammjbdenadd?hl=es)
-
 Si experimentas problemas similares para cargar páginas en varios navegadores en tu ordenador, te dejamos algunas sugerencias:
 
 1. Intenta visitar otra página web: puede que simplemente la que estás intentando ver esté temporalmente caída.
 2. Cierra otros programas que hayas abierto en tu ordenador: puede que ellos estén consumiendo mucha memoria, haciendo que los navegadores funcionen con lentitud.
 3. Reinicia el ordenador.
 
+!!! tip "Páginas que solo funcionan con Internet Explorer"
+    Si la página funcionaba con Internet Explorer pero no con Firefox o Chrome, es muy probable que esa página web esté diseñada para que funcione solo con Internet Explorer. Antes los desarrolladores diseñaban las páginas web para que funcionasen con Internet Explorer, pero Internet Explorer ha sido un navegador que no ha cumplido con varios estándares de la web, y por consecuencia esas páginas web no funcionan en otros navegadores. La solución sería instalar y usar la extensión IE Tab con esa página web (por el momento solo funciona en Windows): [Chrome Web Store - IE Tab](https://chrome.google.com/webstore/detail/ie-tab/hehijbfgiekmjfkfjpbkbammjbdenadd?hl=es)
 
 ## 11. Busca mensaje de error
 Si aparece algún mensaje de error, nunca está de más leerse las sugerencias que se incluyen en la página.
