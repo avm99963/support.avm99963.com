@@ -2,8 +2,8 @@ site_name: avm99963
 theme:
   name: 'material'
   language: 'es'
-  logo:
-    icon: 'live_help'
+  icon:
+    logo: material/help-box
 repo_name: avm99963/support.avm99963.com
 repo_url: https://github.com/avm99963/support.avm99963.com
 extra_css: ["css/styles.css"]
