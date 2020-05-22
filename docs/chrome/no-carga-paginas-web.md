@@ -114,7 +114,9 @@ Mira este vídeo de YouTube que explica sobre cómo detectar el malware:
 
 <div>
   <div style="margin-top: 1em; margin-bottom: 1em; overflow: auto">
-    <a href="https://www.youtube.com/watch?v=nvIXGeB1WgE" rel="nofollow noopener" style="margin-right: 1em; margin-bottom: 1em; color: rgb(119,89,174); min-height: 90px; overflow: hidden; display: block; float: left; width: 120px; background:url('http://i3.ytimg.com/vi/6UtURLtDWsU/hqdefault.jpg') 50% 50%/100% no-repeat;"></a>
+    <a href="https://www.youtube.com/watch?v=nvIXGeB1WgE" rel="nofollow noopener" style="margin-right: 1em;
+    margin-bottom: 1em; color: rgb(119,89,174); min-height: 90px; overflow: hidden; display: block; float: left; width:
+    120px; background:url('https://i3.ytimg.com/vi/6UtURLtDWsU/hqdefault.jpg') 50% 50%/100% no-repeat;"></a>
     <div>
       <div style="color: rgb(36,93,193)"><a href="https://www.youtube.com/watch?v=nvIXGeB1WgE" rel="nofollow noopener">Tres consejos para detectar software malicioso</a></div>
       <div style="margin-top: 1em; color: rgb(119,119,119); min-height: 50px">Google</div>
