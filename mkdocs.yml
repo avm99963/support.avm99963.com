@@ -27,6 +27,7 @@ nav:
     - 'Error con certificado': 'chrome/error-certificado.md'
     - 'Traducciones':
       - 'Descarte y recarga de pestañas': 'chrome/traducciones/descarte-recarga-pestanas.md'
+      - 'Ataques locales en Chrome': 'chrome/traducciones/ataques-locales-chrome.md'
     - 'Para desarrolladores':
       - 'Vida de un objeto URLRequest': 'chrome/desarrolladores/vida-de-una-url-request.md'
       - 'Un curso rápido sobre diagnóstico de problemas con chrome://net-internals': 'chrome/desarrolladores/curso-diagnostico-net-internals.md'
