@@ -33,6 +33,8 @@ nav:
     - 'Para desarrolladores':
       - 'Vida de un objeto URLRequest': 'chrome/desarrolladores/vida-de-una-url-request.md'
       - 'Un curso rápido sobre diagnóstico de problemas con chrome://net-internals': 'chrome/desarrolladores/curso-diagnostico-net-internals.md'
+  - 'Gmail':
+    - 'Cambiar el idioma de Gmail': 'gmail/cambiar-idioma.md'
 extra:
   social:
     - icon: material/web
