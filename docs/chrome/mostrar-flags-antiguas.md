@@ -6,7 +6,7 @@
 
 Cuando una _flag_ desaparece, normalmente es posible volverla a mostrar (y configurar) en las 2 versiones de Chrome posteriores a la última versión que la mostraba.[^1] Para volver a mostrar _flags_ antiguas, sigue los siguientes pasos:
 
-1. Accede a **`chrome//flags`** (copia y pega esta dirección en la barra de direcciones y pulsa enter).
+1. Accede a **`chrome://flags`** (copia y pega esta dirección en la barra de direcciones y pulsa enter).
 2. Activa la _flag_ **Temporarily unexpire Mv flags**, donde **v** es la última versión donde estaba disponible la _flag_ que ha desaparecido.
 
     !!! tip "Consejo"
