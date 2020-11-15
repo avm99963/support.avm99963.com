@@ -27,6 +27,7 @@ nav:
     - 'Chrome no carga páginas web': 'chrome/no-carga-paginas-web.md'
     - 'Canales de Chrome': 'chrome/canales.md'
     - 'Error con certificado': 'chrome/error-certificado.md'
+    - 'Volver a mostrar flags antiguas': 'chrome/mostrar-flags-antiguas.md'
     - 'Traducciones':
       - 'Descarte y recarga de pestañas': 'chrome/traducciones/descarte-recarga-pestanas.md'
       - 'Ataques locales en Chrome': 'chrome/traducciones/ataques-locales-chrome.md'
