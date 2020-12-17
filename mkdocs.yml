@@ -32,6 +32,7 @@ nav:
       - 'Descarte y recarga de pestañas': 'chrome/traducciones/descarte-recarga-pestanas.md'
       - 'Ataques locales en Chrome': 'chrome/traducciones/ataques-locales-chrome.md'
     - 'Para desarrolladores':
+      - 'Hacer una bisección de Chrome': 'chrome/desarrolladores/biseccion.md'
       - 'Vida de un objeto URLRequest': 'chrome/desarrolladores/vida-de-una-url-request.md'
       - 'Un curso rápido sobre diagnóstico de problemas con chrome://net-internals': 'chrome/desarrolladores/curso-diagnostico-net-internals.md'
   - 'Gmail':
