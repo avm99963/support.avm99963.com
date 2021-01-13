@@ -19,6 +19,8 @@ markdown_extensions:
   - markdown.extensions.footnotes
   - markdown.extensions.toc:
       permalink: true
+  - pymdownx.tabbed
+  - pymdownx.superfences
 nav:
   - 'Sobre esta web': 'index.md'
   - 'Chrome':

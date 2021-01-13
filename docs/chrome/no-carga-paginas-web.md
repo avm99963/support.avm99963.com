@@ -9,7 +9,7 @@ Antes de empezar vaciaremos la caché y borraremos las cookies[^1] ya que son un
 
 Selecciona las casillas "***Cookies y otros datos de sitios***" y "***Archivos e imágenes almacenados en caché***", y sobretodo selecciona eliminar elementos almacenados **<span style="color: red;">desde siempre</span>**. Después haz clic en el botón "**Borrar datos de navegación**".
 
-<div style="text-align: center;"><a href="../../img/deletecookies.png" target="\_blank" rel="noopener nofollow"><img src="../../img/deletecookies.png" style="max-width: 350px;"></a><br><span style="color: gray;">[haz clic encima de las imágenes para hacerlas más grandes]</span></div>
+<div style="text-align: center;"><a href="../../img/deletecookies.png" target="_blank" rel="noopener nofollow"><img src="../../img/deletecookies.png" style="max-width: 350px;"></a><br><span style="color: gray;">[haz clic encima de las imágenes para hacerlas más grandes]</span></div>
 
 ## 2. Probar en modo incógnito
 Probaremos con modo incógnito.[^2] Para ello haremos clic en el **menú de Chrome** (**`⋮`**) y seleccionaremos **Nueva ventana de incógnito**.
@@ -23,7 +23,7 @@ Para comprobar que ninguna de estas esté provocando el problema, seguid los sig
 
 1. Accede a `chrome://extensions` (copia y pega esta URL en la barra de direcciones de Chrome y pulsa enter)
 2. **Haz clic en el control deslizante** que hay en la esquina inferior derecha de la tarjeta de la primera extensión **para desactivarla**.
-<div style="text-align: center;"><a href="../../img/inhabilitarextension.png" target="\_blank" rel="noopener nofollow"><img src="../../img/inhabilitarextension.png" style="max-width: 500px;"></a></div>
+<div style="text-align: center;"><a href="../../img/inhabilitarextension.png" target="_blank" rel="noopener nofollow"><img src="../../img/inhabilitarextension.png" style="max-width: 500px;"></a></div>
 3. Prueba ahora si Chrome se comporta de la manera indeseada. Si todavía se comporta mal, **deberás inhabilitar la siguiente extensión, hasta encontrar la culpable**.
 4. Cuando veas que Chrome ya se comporta correctamente, entonces has encontrado la extensión culpable. Haz clic en el botón **Eliminar** para eliminarla.[^3]
 
@@ -32,7 +32,7 @@ Si al inhabilitar todas las extensiones, Chrome se sigue comportando de una mane
 ## 4. Restablecer configuración
 Para restablecer la configuración de Chrome,[^5] abriremos el **menú de Chrome** (**`⋮`**), **Configuración**. Haremos clic en **Configuración avanzada** debajo del todo de la página y debajo del todo saldrá el botón **Restablecer la configuración del navegador**. Haremos clic, y en el diálogo que aparece haremos clic en el botón **Restablecer**/**Recuperar configuración**.
 
-<div style="text-align: center;"><a href="../../img/resetchrome.png" target="\_blank" rel="noopener nofollow"><img src="../../img/resetchrome.png" style="max-width: 350px;"></a></div>
+<div style="text-align: center;"><a href="../../img/resetchrome.png" target="_blank" rel="noopener nofollow"><img src="../../img/resetchrome.png" style="max-width: 350px;"></a></div>
 
 ## 5. Crear nuevo perfil de Chrome
 Si nada de lo anterior solucionó el problema, crearemos otro perfil de Chrome.[^6] Para ello haremos clic en el **botón con la foto del usuario** que aparece justo a la izquierda del menú de Chrome, y haremos clic en el botón **Añadir**. En la ventana que aparece, introduciremos un nombre y haremos clic en el botón **Añadir**. Si funciona correctamente con el nuevo perfil podemos eliminarlo desde el icono de configuración del menú de los perfiles.
@@ -56,9 +56,11 @@ Para reinstalar Chrome, primero lo desinstalaremos: [Cómo desinstalar Google Ch
 !!! warning "Borrar también los datos de usuario de Chrome"
     Al desinstalar Chrome hay que borrar todos los datos de Chrome, ya que de lo contrario puede ser que algún dato corrupto siga provocando el problema aún después de desinstalar.
 
+    **Si quieres conservar tus datos, asegúrate de sincronizar Chrome antes**: [Activar y desactivar la sincronización en Chrome - Ayuda de Google Chrome](https://support.google.com/chrome/answer/185277?hl=es). Si acabas de activar la sincronización, espera unos 15 minutos para asegurarte que se sincronice todo.
+
     En Windows, hay que asegurarse que marcamos la opción **¿Quieres borrar también los datos de navegación?**, en Linux la opción **Marcar para eliminar completamente**, y en Mac se debe borrar la carpeta `Chrome` ubicada en `~/Library/Application Support/Google` después de arrastrar la aplicación Chrome a la papelera para borrar los datos del usuario.
 
-    <div style="text-align: center;"><a href="../../img/uninstall.png" target="\_blank" rel="noopener nofollow"><img src="../../img/uninstall.png" style="max-width: 350px;"></a></div>
+    <div style="text-align: center;"><a href="../../img/uninstall.png" target="_blank" rel="noopener nofollow"><img src="../../img/uninstall.png" style="max-width: 350px;"></a></div>
 
 Después podemos volver a instalar Chrome desde su página web: [Cómo descargar e instalar Google Chrome - Ayuda de Google Chrome](https://support.google.com/chrome/answer/95346?hl=es)
 
@@ -67,13 +69,27 @@ En el caso de tener un programa de antivirus/cortafuegos instalado, es convenien
 
 ## 9. Desactiva el proxy
 
-!!! info "En Windows"
-    Haz clic en el **menú de Chrome** (**`⋮`**), **Configuración**, **Configuración avanzada** y en la sección **Red** haz clic en el botón **Cambiar configuración del proxy...**, allí haz clic en el botón **Configuración de LAN** e inhabilita la casilla **Usar un servidor proxy para la LAN**.
+=== "Windows 10"
+    Haz clic en el **menú de Chrome** (**`⋮`**), **Configuración**, **Configuración avanzada** y en la sección **Sistema** haz clic en el botón **Cambiar configuración del proxy...**.
 
-    <div style="text-align: center;"><a href="../../img/proxy.png" target="\_blank" rel="noopener nofollow"><img src="../../img/proxy.png" style="max-width: 350px;"></a></div>
+    Ahora, en la ventana que aparece, en la sección **Configuración automática del proxy** desactiva la opción **Detectar la configuración automáticamente**, y en la sección **Configuración manual del proxy** desactiva la opción **Usar servidor proxy**, para que quede tal que así:
 
-!!! info "En Mac"
+    <div style="text-align: center;"><a href="../../img/proxy10.png" target="_blank" rel="noopener nofollow"><img src="../../img/proxy10.png" style="max-width: 350px;"></a></div>
+
+=== "Windows 7 y 8"
+    Haz clic en el **menú de Chrome** (**`⋮`**), **Configuración**, **Configuración avanzada** y en la sección **Sistema** haz clic en el botón **Cambiar configuración del proxy...**.
+
+    Ahora en la ventana que aparece haz clic en el botón **Configuración de LAN** y desactiva las casillas **Detectar la configuración automáticamente** y **Usar un servidor proxy para la LAN**.
+
+    <div style="text-align: center;"><a href="../../img/proxy.png" target="_blank" rel="noopener nofollow"><img src="../../img/proxy.png" style="max-width: 350px;"></a></div>
+
+=== "Mac"
     Sigue los pasos del siguiente artículo de ayuda para desactivar el Proxy: [Introducir los ajustes del servidor proxy en el Mac](https://support.apple.com/es-es/guide/mac-help/mchlp2591/mac)
+
+=== "Linux"
+    Haz clic en el **menú de Chrome** (**`⋮`**), **Configuración**, **Configuración avanzada** y en la sección **Sistema** haz clic en el botón **Cambiar configuración del proxy...**.
+
+    Esto abrirá la configuración del proxy de tu distribución Linux. Deberías revisar esa configuración para desactivar un posible proxy que esté instalado.
 
 ## 10. Comprueba si la página web funciona con otros navegadores
 Es importante ver si la página web funciona con otros navegadores como [Firefox](https://www.mozilla.org/es-ES/firefox/new/).
@@ -105,7 +121,7 @@ Si esto no resuelve el problema, lo recomendable es volver a seleccionar la opci
 ## 14. Comprueba los conflictos con Chrome (solo Windows)
 Si usas Windows, abre la página `chrome://conflicts` y comprueba si algún módulo ha entrado en conflicto con Chrome.[^8]
 
-<div style="text-align: center;"><a href="../../img/chromeconflicts.png" target="\_blank" rel="noopener nofollow"><img src="../../img/chromeconflicts.png" style="max-width: 350px;"></a></div>
+<div style="text-align: center;"><a href="../../img/chromeconflicts.png" target="_blank" rel="noopener nofollow"><img src="../../img/chromeconflicts.png" style="max-width: 350px;"></a></div>
 
 ## 15. Verifica la posible presencia de software malintencionado
 Nunca va mal comprobar si malware ocasionó el problema.
