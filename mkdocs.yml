@@ -21,6 +21,8 @@ markdown_extensions:
       permalink: true
   - pymdownx.tabbed
   - pymdownx.superfences
+  - pymdownx.keys
+  - pymdownx.details
 nav:
   - 'Sobre esta web': 'index.md'
   - 'Chrome':
