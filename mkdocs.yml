@@ -32,6 +32,7 @@ nav:
     - 'Canales de Chrome': 'chrome/canales.md'
     - 'Error con certificado': 'chrome/error-certificado.md'
     - 'Volver a mostrar flags antiguas': 'chrome/mostrar-flags-antiguas.md'
+    - 'Solucionar problemas con las imágenes de fondo de Meet': 'chrome/fondo-meet.md'
     - 'Traducciones':
       - 'Descarte y recarga de pestañas': 'chrome/traducciones/descarte-recarga-pestanas.md'
       - 'Ataques locales en Chrome': 'chrome/traducciones/ataques-locales-chrome.md'
