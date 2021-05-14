@@ -51,7 +51,7 @@ hacer la bisección. Ya que la herramienta usa Python, instalaremos Python, y lu
     6. En la ventana que aparece, copia y pega el siguiente comando usando la
     combinación de teclas ++ctrl+v++ y pulsa ++enter++ para ejecutarlo:
     ```
-    python -c "import urllib.request; import base64; print(base64.b64decode(urllib.request.urlopen('https://chromium.googlesource.com/chromium/src/+/master/tools/bisect-builds.py?format=text').read())" > bisect-builds.py
+    python -c "import urllib.request; import base64; print(base64.b64decode(urllib.request.urlopen('https://chromium.googlesource.com/chromium/src/+/master/tools/bisect-builds.py?format=text').read()).decode())" | Out-File -FilePath bisect-builds.py -Encoding utf8
     ```
     <div style="text-align: center;"><a href="../../../img/bisect_tool_install_win.png" target="_blank" rel="noopener nofollow"><img src="../../../img/bisect_tool_install_win.png" style="max-width: 350px;"></a><br><span style="color: gray;">[haz clic encima de las imágenes para hacerlas más grandes]</span></div>
 
