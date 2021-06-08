@@ -13,8 +13,11 @@ Puedes averiguar si tu cuenta está administrada
 [aquí](https://support.google.com/a/answer/6208960?hl=es).
 
 ## 2. Dispositivos móviles
-Desafortunadamente la función de fondos personalizados de Meet **no está
-disponible para teléfonos móviles**: solo para ordenadores.
+¡Ahora esta función ya está disponible en Meet para Android![^5] Se ha lanzado
+el 7 de junio de 2021 y se irá mostrando progresivamente durante los siguientes
+15 días a todos los usuarios.
+
+Esta función se lanzará en Meet para iOS (iPhone/iPad) pronto.
 
 ## 3. Requisitos técnicos
 Tu ordenador/Chrome debe cumplir una serie de requisitos para poder usar esta
@@ -23,6 +26,8 @@ función:[^2]
 - Debes usar como mínimo la **versión 84** de Chrome
 ([comprueba tu versión](https://labs.avm99963.com/chrome/version.php)).
     - Si usas una Chromebook, debes usar como mínimo la versión 86.
+    - A partir del **30 de junio de 2021**, será necesario usar como mínimo
+    la **versión 87** de Chrome.[^6]
 - La variante 32-bit de Chrome **no** es compatible (puedes comprobar cuál
 tienes instalada en la página `chrome://version`, arriba del todo).
 - La **aceleración por hardware** de Chrome debe estar activada.
@@ -88,3 +93,7 @@ entrada **WebGL 2.0** de `chrome://gpu`.
 [^4]: Si tu driver está desactualizado y una versión más nueva arregla un
 problema conocido, es posible que esta nueva versión no esté prohibida por
 Chrome y se arregle el problema solo actualizándolo.
+[^5]: [Option to replace your background in Google Meet is now available on Android - Google Workspace Updates](https://workspaceupdates.googleblog.com/2021/06/replace-your-background-in-google-meet-android.html)
+(_en inglés_)
+[^6]: [Replace your background with a video in Google Meet - Google Workspace Updates](https://workspaceupdates.googleblog.com/2021/06/replace-your-background-with-video-in.html)
+(_en inglés_)
