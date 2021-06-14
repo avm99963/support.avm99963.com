@@ -6,4 +6,7 @@ Para obtener más detalles de un error que ocurre con un certificado, debes segu
 2. Cuando aparezca el error del certificado, haz clic en el código de error (que será algo del tipo `NET::ERR_CERT_DATE_INVALID`).
 3. Justo debajo de ese código de error aparecerá la información adicional.
 
-![Ejemplo de lo que aparece después de seguir los pasos](../img/badssl.webp)
+<video autoplay loop muted>
+  <source src="https://labs.avm99963.com/chrome/gifs/mas_informacion_certificado.webm" type="video/webm">
+  <source src="https://labs.avm99963.com/chrome/gifs/mas_informacion_certificado.mp4" type="video/mp4">
+</video>
