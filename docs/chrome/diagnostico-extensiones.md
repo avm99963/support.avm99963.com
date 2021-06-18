@@ -28,6 +28,6 @@ trata de una extensión maliciosa.
     resolver el problema para todos los usuarios de la extensión, y cuando esté
     solucionado solo tendrás que volverla a activar.
 
-Si al inhabilitar todas las extensiones, Chrome se sigue comportando de un
+Si al inhabilitar todas las extensiones, Chrome se sigue comportando de una
 manera indeseada, eso significa que la fuente del problema no son las
 extensiones, sino otra cosa.
