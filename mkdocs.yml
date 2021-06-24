@@ -6,6 +6,7 @@ theme:
   language: 'es'
   icon:
     logo: material/help-box
+  custom_dir: overrides
 repo_name: avm99963/support.avm99963.com
 repo_url: https://github.com/avm99963/support.avm99963.com
 extra_css: ["css/styles.css"]
@@ -42,6 +43,8 @@ nav:
       - 'Un curso rápido sobre diagnóstico de problemas con chrome://net-internals': 'chrome/desarrolladores/curso-diagnostico-net-internals.md'
   - 'Gmail':
     - 'Cambiar el idioma de Gmail': 'gmail/cambiar-idioma.md'
+  - 'Miscelánea':
+    - 'Cómo insertar una captura de pantalla en los Foros de Google': 'misc/captura-pantalla-foros-google.md'
 extra:
   social:
     - icon: material/web
