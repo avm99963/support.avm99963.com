@@ -14,7 +14,9 @@ plugins:
   - search
   - minify:
       minify_html: true
-  - git-revision-date-localized
+  - git-revision-date-localized:
+      exclude:
+        - chrome/version.md
 markdown_extensions:
   - markdown.extensions.admonition
   - markdown.extensions.footnotes
@@ -31,6 +33,7 @@ nav:
     - 'Malware en Chrome': 'chrome/malware.md'
     - 'Inhabilitar extensiones de Chrome': 'chrome/diagnostico-extensiones.md'
     - 'Chrome no carga páginas web': 'chrome/no-carga-paginas-web.md'
+    - '¿Qué versión de Chrome tengo?': 'chrome/version.md'
     - 'Canales de Chrome': 'chrome/canales.md'
     - 'Error con certificado': 'chrome/error-certificado.md'
     - 'Volver a mostrar flags antiguas': 'chrome/mostrar-flags-antiguas.md'

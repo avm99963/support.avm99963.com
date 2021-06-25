@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block extrahead %}
+  <style>
+  .version-box {
+    display: block;
+    background: #F2F3F0;
+    border: solid 1px #DDDFDA;
+    border-radius: 4px;
+    padding: 5px 5px 5px 5px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+
+  @media screen and (min-width: 641px) {
+    .version-box {
+      width: 300px;
+    }
+  }
+
+  .version-box #version {
+    font-size: 16px;
+  }
+
+  .version-box #updated {
+    font-size: 12px;
+    color: gray;
+  }
+
+  .version-box a:link {
+    color: #306CEF;
+  }
+
+  .version-box a:visited {
+    color: #306CEF;
+  }
+
+  .version-box a:hover {
+    color: #306CEF;
+  }
+
+  .version-box a:active {
+    color: #306CEF;
+  }
+  </style>
+{% endblock %}
+
+{#
+  This removes all material-mkdocs js files (therefore disabling the search bar,
+  repo info, etc.), because they are overriden by the following code.
+
+  This is working as intended, since this also makes the page load faster.
+#}
+{% block scripts %}
+  <script src="{{ 'assets/javascripts/version_page.js' | url }}"></script>
+{% endblock %}
