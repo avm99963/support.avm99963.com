@@ -1,5 +1,20 @@
 {% extends "base.html" %}
 
+{% block extrahead %}
+  <link rel="alternate" hreflang="en"
+      href="https://labs.avm99963.com/chrome/screenshot.php?hl=en">
+  <link rel="alternate" hreflang="es"
+      href="https://support.avm99963.com/misc/captura-pantalla-foros-google/">
+  <link rel="alternate" hreflang="x-default"
+      href="https://labs.avm99963.com/chrome/screenshot.php">
+{% endblock %}
+
+{#
+  This removes all material-mkdocs js files (therefore disabling the search bar,
+  repo info, etc.), because they are overriden by the following code.
+
+  This is working as intended, since this also makes the page load faster.
+#}
 {% block scripts %}
   <script src="{{ 'assets/javascripts/screenshot_page.js' | url }}"></script>
 {% endblock %}
