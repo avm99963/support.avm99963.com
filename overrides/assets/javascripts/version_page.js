@@ -49,14 +49,16 @@ var app = {
                 });
             actualversion = actualchrome[0].version.split('.')[0];
             if (version < actualversion) {
-              document.getElementById('updated').innerHTML = '¡Oh, no!' +
-                  'Google Chrome <a href=\'https://support.google.com/chrome/answer/95414\'>no está actualizado</a>.';
+              document.getElementById('updated').innerHTML =
+                  '¡Oh, no! Google Chrome ' +
+                  '<a href=\'https://support.google.com/chrome/answer/95414\'>no está actualizado</a>.';
             } else if (version > actualversion) {
               document.getElementById('updated').innerHTML =
                   'No estás usando el canal estable de Chrome. Ve con cuidado ;-)';
             } else if (version2 != actualchrome[0].version) {
               document.getElementById('updated').innerHTML =
-                  'Oops, Google Chrome <a href=\'https://support.google.com/chrome/answer/95414\'>no está actualizado</a>.';
+                  'Oops, Google Chrome ' +
+                  '<a href=\'https://support.google.com/chrome/answer/95414\'>no está actualizado</a>.';
             } else {
               document.getElementById('updated').innerHTML =
                   'Chrome está actualizado';
