@@ -1,3 +1,7 @@
+---
+title: Cómo ver más detalles de un error de certificado
+---
+
 # Cómo ver más detalles de un error de certificado
 
 Para obtener más detalles de un error que ocurre con un certificado, debes seguir los siguientes pasos:

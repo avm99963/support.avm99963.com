@@ -24,6 +24,7 @@ markdown_extensions:
   - pymdownx.superfences
   - pymdownx.keys
   - pymdownx.details
+  - meta
 nav:
   - 'Sobre esta web': 'index.md'
   - 'Chrome':

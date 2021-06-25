@@ -1,3 +1,7 @@
+---
+title: Cómo inhabilitar las extensiones de Chrome para descubrir la fuente del problema
+---
+
 # Cómo inhabilitar las extensiones de Chrome para descubrir la fuente del problema
 ¡Hola a todos!
 

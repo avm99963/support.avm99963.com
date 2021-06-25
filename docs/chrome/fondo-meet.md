@@ -1,3 +1,8 @@
+---
+title: Solucionar problemas con las imágenes de fondo de Meet
+description: Si usas Meet en Chrome y no puedes ponerte una imagen de fondo, este artículo describe varias causas del problema que te pueden ayudar a solucionarlo.
+---
+
 # Solucionar problemas con las imágenes de fondo de Meet
 Si usas Google Meet en Chrome y no puedes ponerte una imagen de fondo, este
 artículo describe varias causas del problema que te pueden ayudar a
