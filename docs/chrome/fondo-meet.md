@@ -18,21 +18,27 @@ Puedes averiguar si tu cuenta está administrada
 [aquí](https://support.google.com/a/answer/6208960?hl=es).
 
 ## 2. Dispositivos móviles
-¡Ahora esta función ya está disponible en Meet para Android![^5] Se ha lanzado
-el 7 de junio de 2021 y se irá mostrando progresivamente durante los siguientes
-15 días a todos los usuarios.
+Esta función está disponible para móviles desde el día 7 de junio de 2021 en
+Android[^5] y el día 14 de julio de 2021 en iOS (iPhone/iPad).[^7]
 
-Esta función se lanzará en Meet para iOS (iPhone/iPad) pronto.
+Estos dispositivos tienen que cumplir los siguientes requisitos:[^2]
+
+- En el caso de **Android**, el dispositivo debe disponer de **Android P** (9) o
+una versión posterior.
+- En el caso de **iOS**, el dispositivo debe estar actualizado como mínimo a
+**iOS 12** o una versión posterior. Además, solo los siguientes modelos están
+soportados:
+    - iPhone 8 o modelo posterior.
+    - iPad de quinta generación o posterior.
 
 ## 3. Requisitos técnicos
-Tu ordenador/Chrome debe cumplir una serie de requisitos para poder usar esta
-función:[^2]
+Si usas Meet en un ordenador, este y el navegador deben cumplir una serie de
+requisitos para poder usar esta función:[^2]
 
-- Debes usar como mínimo la **versión 84** de Chrome
-([comprueba tu versión](https://labs.avm99963.com/chrome/version.php)).
-    - Si usas una Chromebook, debes usar como mínimo la versión 86.
-    - A partir del **30 de junio de 2021**, será necesario usar como mínimo
-    la **versión 87** de Chrome.[^6]
+- Debes usar como mínimo la **versión 87** de Chrome o Edge
+([comprueba tu versión](version.md)).
+    - Si además quieres activar los efectos y estilos immersivos, necesitas
+    como mínimo la **versión 91** de Chrome o Edge.
 - La variante 32-bit de Chrome **no** es compatible (puedes comprobar cuál
 tienes instalada en la página `chrome://version`, arriba del todo).
 - La **aceleración por hardware** de Chrome debe estar activada.
@@ -102,3 +108,4 @@ Chrome y se arregle el problema solo actualizándolo.
 (_en inglés_)
 [^6]: [Replace your background with a video in Google Meet - Google Workspace Updates](https://workspaceupdates.googleblog.com/2021/06/replace-your-background-with-video-in.html)
 (_en inglés_)
+[^7]: [Replace your background in Google Meet, now on iOS](https://workspaceupdates.googleblog.com/2021/07/background-replace-in-google-meet-on-ios.html)
