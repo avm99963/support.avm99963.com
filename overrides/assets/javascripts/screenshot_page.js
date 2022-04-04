@@ -21,40 +21,6 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. */
 
-// Detect the current OS
-function detectOS() {
-  var linuxRegex = /Linux/i;
-  var winRegex = /Win/i;
-  var winNT7 = /NT 7/i;
-  var winNT6 = /NT 6/i;
-  var macRegex = /Mac/i;
-  var crosRegex = /CrOS/i;
-
-  var uaPromise = null;
-  if (navigator.userAgentData) {
-    uaPromise = navigator.userAgentData
-                    .getHighEntropyValues(['platform', 'platformVersion'])
-                    .then(ua => {
-                      return ua?.platform + ' ' + ua?.platformVersion;
-                    });
-  } else {
-    uaPromise = new Promise((res, rej) => {
-      res(navigator.userAgent ?? '');
-    });
-  }
-
-  return uaPromise.then(ua => {
-    if (linuxRegex.test(ua)) return 'linux';
-    if (winRegex.test(ua)) {
-      if (winNT7.test(ua) || winNT6.test(ua)) return 'win_7_or_less';
-      return 'win_latest';
-    }
-    if (macRegex.test(ua)) return 'mac';
-    if (crosRegex.test(ua)) return 'cros';
-    return null;
-  });
-}
-
 // Get the OS from the 'os' GET parameter if set
 function getOSGETParam() {
   var sp = new URLSearchParams(location.search);

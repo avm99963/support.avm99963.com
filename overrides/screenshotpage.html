@@ -16,5 +16,6 @@
   This is working as intended, since this also makes the page load faster.
 #}
 {% block scripts %}
+  <script src="{{ 'assets/javascripts/ua_utils.js' | url }}"></script>
   <script src="{{ 'assets/javascripts/screenshot_page.js' | url }}"></script>
 {% endblock %}
