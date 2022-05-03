@@ -1,7 +1,7 @@
 // @Author: avm99963 (https://www.avm99963.com)
 /* @License: The MIT License (MIT)
 
-Copyright (c) 2021 Adrià Vilanova Martínez
+Copyright (c) 2022 Adrià Vilanova Martínez
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -23,6 +23,7 @@ SOFTWARE. */
 
 // Detect the current OS
 function detectOS() {
+  var androidRegex = /Android/i;
   var linuxRegex = /Linux/i;
   var winRegex = /Win/i;
   var winNT7 = /NT 7/i;
@@ -44,6 +45,9 @@ function detectOS() {
   }
 
   return uaPromise.then(ua => {
+    // The order in which OSs are checked is important! (e.g. Android contains
+    // the substring "Linux" in its user agent)
+    if (androidRegex.test(ua)) return 'android';
     if (linuxRegex.test(ua)) return 'linux';
     if (winRegex.test(ua)) {
       if (winNT7.test(ua) || winNT6.test(ua)) return 'win_7_or_less';

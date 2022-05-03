@@ -1,7 +1,7 @@
 // @Author: avm99963 (https://www.avm99963.com)
 /* @License: The MIT License (MIT)
 
-Copyright (c) 2021 Adrià Vilanova Martínez
+Copyright (c) 2022 Adrià Vilanova Martínez
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -40,7 +40,8 @@ function detectCrVersion() {
 }
 
 function convert2OmahaOS(os) {
-  if (os == 'linux' || os == 'mac' || os == 'cros') return os;
+  if (os == 'linux' || os == 'mac' || os == 'cros' || os == 'android')
+    return os;
   if (os == 'win_7_or_less' || os == 'win_latest') return 'win64';
   return undefined;
 }
@@ -50,6 +51,7 @@ function prettifyOS(os) {
   if (os == 'mac') return 'Mac';
   if (os == 'cros') return 'Chrome OS';
   if (os == 'win_7_or_less' || os == 'win_latest') return 'Windows';
+  if (os == 'android') return 'Android';
   return undefined;
 }
 
@@ -80,9 +82,12 @@ var app = {
           var actualChrome =
               matches?.[0]?.versions?.filter?.(function(val, index, array) {
                 return val.channel === 'stable';
-              });
+              }) ??
+              [];
           actualVersion = actualChrome?.[0]?.version?.split?.('.')?.[0];
-          if (majorVersion < actualVersion) {
+          if (actualVersion === undefined) {
+            document.getElementById('updated').innerHTML = '';
+          } else if (majorVersion < actualVersion) {
             document.getElementById('updated').innerHTML =
                 '¡Oh, no! Google Chrome ' +
                 '<a href=\'https://support.google.com/chrome/answer/95414\'>no está actualizado</a>.';
