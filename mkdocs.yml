@@ -41,6 +41,7 @@ nav:
     - 'Traducciones':
       - 'Descarte y recarga de pestañas': 'chrome/traducciones/descarte-recarga-pestanas.md'
       - 'Ataques locales en Chrome': 'chrome/traducciones/ataques-locales-chrome.md'
+      - 'Gracias y adiós al Limpiador de Chrome': 'chrome/traducciones/limpiador-de-chrome.md'
     - 'Para desarrolladores':
       - 'Hacer una bisección de Chrome': 'chrome/desarrolladores/biseccion.md'
       - 'Vida de un objeto URLRequest': 'chrome/desarrolladores/vida-de-una-url-request.md'
