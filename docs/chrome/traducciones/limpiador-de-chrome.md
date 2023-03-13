@@ -1,4 +1,4 @@
-!!! note
+!!! note "Nota"
 
     Este artículo es una traducción al español del artículo publicado por Jasika Bawa, miembro del Equipo de Seguridad de Chrome: [Google Online Security Blog: Thank you and goodbye to the Chrome Cleanup Tool](https://security.googleblog.com/2023/03/thank-you-and-goodbye-to-chrome-cleanup.html)
 
@@ -6,10 +6,10 @@
 
 Desde Chrome 111 empezaremos a desactivar el Limpiador de Chrome, una aplicación distribuida a los usuarios de Chrome en Windows para ayudarles a encontrar y eliminar software no deseado.
 
-## Historia del origen
+## El origen
 El Limpiador de Chrome se lanzó en 2015 para ayudar a los usuarios a revertir cambios inesperados a la configuración, y detectar y eliminar software no deseado. Hasta la fecha, ha realizado más de 80 millones de limpiezas, ayudando a construir el camino hacia una web más limpia y segura.
 
-## Un paisaje canviante
+## Un paisaje cambiante
 Durante los últimos años varios factores nos han llevado a reevaluar la necesidad de esta aplicación para mantener a los usuarios de Chrome seguros.
 
 Primero, la perspectiva del usuario –las quejas de los usuarios de Chrome sobre software no deseado han bajado continuadamente durante los años, llegando a una media del 3% sobre el total de quejas en el último año. De acuerdo con esto, también hemos observado un continuado descenso en la detección de software no deseado en las máquinas de los usuarios. Por ejemplo, el último mes solo un 0.06% de los escaneados del Limpiador de Chrome ejecutados por usuarios detectaron software no deseado conocido.
