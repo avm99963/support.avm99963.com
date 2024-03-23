@@ -22,7 +22,8 @@ markdown_extensions:
   - markdown.extensions.footnotes
   - markdown.extensions.toc:
       permalink: true
-  - pymdownx.tabbed
+  - pymdownx.tabbed:
+      alternate_style: true
   - pymdownx.superfences
   - pymdownx.keys
   - pymdownx.details
