@@ -7,6 +7,8 @@ theme:
   icon:
     logo: material/help-box
   custom_dir: overrides
+  features:
+    - content.code.copy
 repo_name: avm99963/support.avm99963.com
 repo_url: https://github.com/avm99963/support.avm99963.com
 extra_css: ["css/styles.css"]
